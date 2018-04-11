@@ -108,5 +108,5 @@ best_k = 1
 #best_k = (maximize_k(0.5, analyzer, cross_validation, 100))
 print(get_success_of_data(best_k, 0.5, analyzer, cross_validation))
 print(get_success_of_data(best_k, 0.5, analyzer, test))
-filename = input("Nombre de archivo a evaluar:\n")
-evaluate(best_k, 0.5, analyzer, "test")
+#filename = input("Nombre de archivo a evaluar:\n")
+#evaluate(best_k, 0.5, analyzer, "test")
