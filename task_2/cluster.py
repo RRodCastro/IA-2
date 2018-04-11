@@ -1,4 +1,4 @@
-from numpy import mean, array, random
+from numpy import mean, array, random, copy
 from random import choice
 from functools import reduce
 from numpy import linalg, transpose, zeros, identity
@@ -19,11 +19,11 @@ class Cluster:
                                 [0, random.uniform(0, 9)]])
 
     def update_mu(self, new_mu):
-        self.old_mu = self.mu[:]
+        self.old_mu = copy(self.mu)
         self.mu = new_mu
 
     def update_sigma(self, new_sigma):
-        self.old_sigma = self.sigma[:]
+        self.old_sigma = copy(self.sigma)
         self.sigma = new_sigma
 
     def check_converge(self):
