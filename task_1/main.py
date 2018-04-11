@@ -92,9 +92,10 @@ def evaluate(k, threshold, analyzer, filename):
         pass
     f = open('result', 'w')
     for line in lines:
-        message = line.split("\t")
+        # print(line)
+        #message = line.split("\t")
         temp = float(analyzer.get_probabilty_from_message(
-            message[1], k))
+            line, k))
         if (temp > threshold):
             f.write('spam\t'+line)
         else:
@@ -106,7 +107,7 @@ training, cross_validation, test = split_document(lines, corpus_partition)
 analyzer = Analyzer(training)
 best_k = 1
 #best_k = (maximize_k(0.5, analyzer, cross_validation, 100))
-print(get_success_of_data(best_k, 0.5, analyzer, cross_validation))
-print(get_success_of_data(best_k, 0.5, analyzer, test))
+#print(get_success_of_data(best_k, 0.5, analyzer, cross_validation))
+#print(get_success_of_data(best_k, 0.5, analyzer, test))
 #filename = input("Nombre de archivo a evaluar:\n")
-#evaluate(best_k, 0.5, analyzer, "test")
+evaluate(best_k, 0.5, analyzer, "test_sms")
